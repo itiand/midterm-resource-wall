@@ -1,6 +1,6 @@
 /*
- * All routes for Users are defined here
- * Since this file is loaded in server.js into /users,
+ * All routes for login are defined here
+ * Since this file is loaded in server.js into /login,
  *   these routes are mounted onto /users
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
@@ -8,10 +8,11 @@
 const express = require('express');
 const router  = express.Router();
 
-//const app = express();
-
 router.get('/', (req, res) => {
-  res.render('users');
+  // res.send("Hello!")
+ res.render('login');
 });
 
 module.exports = router;
+
+

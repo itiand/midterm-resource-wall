@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Home Page</title>
+  <title>Log In</title>
 
   <meta charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
@@ -21,11 +21,28 @@
 
 <body>
   <div class="container">
-    <h1>Pinterest</h1>
-    <div class="getting-started">
-      <button class="btn login-btn">Login</button>
-      <button class="btn sign-up-btn">Sign Up</button>
-    </div>
+    <h1>Sign Up</h1>
+    <div>
+      <form class="sign-up-form" action="/signup" method="POST">
+        <div class="username">
+          <input
+            class="form-control"
+            type="text"
+            name="username"
+            placeholder="Enter your Username"
+          >
+        </div>
+        <div class="email">
+          <input
+            class="form-control"
+            type="email"
+            name="email"
+            placeholder="Enter your Email"
+          >
+        </div>
+        <button class="btn">Sign Up</button>
+        <p><a href="">already have an account?</a></p>
+      </form>
   </div>
 </body>
 

@@ -1,0 +1,34 @@
+/* SCSS HEX */
+$blue-munsell: #3891a6ff;
+$feldgrau: #4c5b5cff;
+$maize: #fde74cff;
+$lightgray: #f7f7f7;
+
+/* SCSS RGB */
+$blue-munsell: rgba(56, 145, 166, 1);
+$feldgrau: rgba(76, 91, 92, 1);
+$maize: rgba(253, 231, 76, 1);
+
+body {
+  height: 100vh;
+  background-color: $lightgray;
+}
+
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .getting-started {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
+
+
