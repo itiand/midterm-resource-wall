@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 
   db.query('SELECT * FROM users').then(data => {
     const templateVars = {users: data.rows}
-    console.log(templateVars);
+    console.log('WALDO', templateVars);
     return res.render('signup', templateVars);
   })
   .catch(err => console.log("dbQueryErr", err));
