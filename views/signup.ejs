@@ -30,6 +30,14 @@
     <%= JSON.stringify(users) %>
     <div>
       <form class="sign-up-form" action="/signup" method="POST">
+        <div class="name">
+          <input
+            class="form-control"
+            type="text"
+            name="name"
+            placeholder="Enter your full name"
+          >
+        </div>
         <div class="username">
           <input
             class="form-control"
