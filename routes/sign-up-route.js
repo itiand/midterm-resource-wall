@@ -12,10 +12,18 @@ const db = require('../db/connection');
 router.get('/', (req, res) => {
 
   // res.send("Hello!")
-  db.query('')
-  res.render('signup');
+  // db.query('SELECT * FROM users')
+  //                               .then(data => console.log('WALDO', data))
+  //                               .catch(err => console.log(err));
+  // return res.render('signup');
+
+  db.query('SELECT * FROM users').then(data => {
+    const templateVars = {users: data.rows}
+    console.log(templateVars);
+    return res.render('signup', templateVars);
+  })
+  .catch(err => console.log("dbQueryErr", err));
+
 });
 
 module.exports = router;
-
-
