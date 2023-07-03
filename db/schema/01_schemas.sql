@@ -10,8 +10,8 @@ CREATE TABLE resources (
   title VARCHAR(255) NOT NULL,
   url VARCHAR(255) NOT NULL,
   description TEXT NOT NULL,
-  category_id INT REFERENCES categories(id) NOT NULL ON DELETE CASCADE,
-  user_id INT REFERENCES users(id) NOT NULL ON DELETE CASCADE,
+  category_id INT REFERENCES categories(id) ON DELETE CASCADE,
+  user_id INT REFERENCES users(id) ON DELETE CASCADE,
   photo_url VARCHAR(255) DEFAULT 'https://i.imgur.com/0dqdq3m.jpeg'
 );
 
@@ -29,21 +29,21 @@ CREATE TABLE cagtegories (
 
 CREATE TABLE comments (
   id SERIAL PRIMARY KEY NOT NULL,
-  resource_id INT REFERENCES resources(id) NOT NULL ON DELETE CASCADE,
-  user_id INT REFERENCES users(id) NOT NULL ON DELETE CASCADE,
+  resource_id INT REFERENCES resources(id) ON DELETE CASCADE,
+  user_id INT REFERENCES users(id) ON DELETE CASCADE,
   comment TEXT NOT NULL
 );
 
 CREATE TABLE favourites (
   id SERIAL PRIMARY KEY NOT NULL,
-  resource_id INT REFERENCES resources(id) NOT NULL ON DELETE CASCADE,
-  user_id INT REFERENCES users(id) NOT NULL ON DELETE CASCADE,
+  resource_id INT REFERENCES resources(id) ON DELETE CASCADE,
+  user_id INT REFERENCES users(id) ON DELETE CASCADE,
 )
 
 CREATE TABLE ratings (
   id SERIAL PRIMARY KEY NOT NULL,
-  resource_id INT REFERENCES resources(id) NOT NULL ON DELETE CASCADE,
-  user_id INT REFERENCES users(id) NOT NULL ON DELETE CASCADE,
+  resource_id INT REFERENCES resources(id) ON DELETE CASCADE,
+  user_id INT REFERENCES users(id) ON DELETE CASCADE,
   number_rating INT NOT NULL CHECK (number_rating >= 1 AND number_rating <= 5)
 );
 
