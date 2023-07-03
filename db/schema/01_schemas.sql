@@ -1,0 +1,51 @@
+DROP TABLE IF EXISTS resources CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS categories CASCADE;
+DROP TABLE IF EXISTS comments CASCADE;
+DROP TABLE IF EXISTS favourites CASCADE;
+DROP TABLE IF EXISTS ratings CASCADE;
+
+CREATE TABLE resources (
+  id SERIAL PRIMARY KEY NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  url VARCHAR(255) NOT NULL,
+  description TEXT NOT NULL,
+  category_id INT REFERENCES categories(id) NOT NULL ON DELETE CASCADE,
+  user_id INT REFERENCES users(id) NOT NULL ON DELETE CASCADE,
+  photo_url VARCHAR(255) DEFAULT 'https://i.imgur.com/0dqdq3m.jpeg'
+);
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  username VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL
+)
+
+CREATE TABLE cagtegories (
+  id PRIMARY KEY NOT NULL,
+  name VARCHAR(255) NOT NULL
+)
+
+CREATE TABLE comments (
+  id SERIAL PRIMARY KEY NOT NULL,
+  resource_id INT REFERENCES resources(id) NOT NULL ON DELETE CASCADE,
+  user_id INT REFERENCES users(id) NOT NULL ON DELETE CASCADE,
+  comment TEXT NOT NULL
+);
+
+CREATE TABLE favourites (
+  id SERIAL PRIMARY KEY NOT NULL,
+  resource_id INT REFERENCES resources(id) NOT NULL ON DELETE CASCADE,
+  user_id INT REFERENCES users(id) NOT NULL ON DELETE CASCADE,
+)
+
+CREATE TABLE ratings (
+  id SERIAL PRIMARY KEY NOT NULL,
+  resource_id INT REFERENCES resources(id) NOT NULL ON DELETE CASCADE,
+  user_id INT REFERENCES users(id) NOT NULL ON DELETE CASCADE,
+  number_rating INT NOT NULL CHECK (number_rating >= 1 AND number_rating <= 5)
+);
+
+
+
