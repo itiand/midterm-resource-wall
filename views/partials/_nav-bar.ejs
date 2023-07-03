@@ -9,39 +9,34 @@
   </nav>
 -->
 
-<nav class="navbar fixed-bottom navbar-expand-lg bg-info">
-  <div class="container-fluid">
-    <ul class="navbar-nav">
 
+<i class="fa-solid fa-user"></i>
+
+
+
+<nav class="navbar fixed-bottom navbar-expand-lg">
+  <a class="navbar-brand">
+    <img src="./foldr.png" alt="Foldr LOGO" width = "30" height="30" alt="Folder LOGO">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a lass="nav-link" href="/index"><i class="fa-solid fa-house"></i></a>
+        <a class="nav-link" href="/login"><i class="fa-solid fa-house"></i></a>
       </li>
-
       <li class="nav-item">
-        <a class="nav-link" href="/login"><i class="fa-solid fa-grid"></i></a>
+        <a class="nav-link" href="/login"><i class="fa-solid fa-folder-plus"></i></a>
       </li>
-
       <li class="nav-item">
-        <a class="nav-link" href="/login"><i class="fa-solid fa-square-plus"></i></a>
+        <a class="nav-link" href="/login"><i class="fa-solid fa-heart"></i></a>
       </li>
-
-      <li class="nav-item">
-        <form class="search-form" role="search">
-        <div class="form-group pull-up" id="search">
-          <input type="text" class="form-control" placeholder="Search">
-          <button type="submit" class="form-control form-control-submit">Submit</button>
-          <span class="search-label"><i class="fa-solid fa-magnifying-glass"></i></span>
-        </div>
-      </form>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="/users"><i class="fa-solid fa-user"></i></a>
-      </li>
-
     </ul>
-
+    <form class="form-inline my-2 my-lg-0">
+      <input id= "search-text" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button id= "search" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
+    </form>
   </div>
 </nav>
-
-
