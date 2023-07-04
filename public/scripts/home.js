@@ -1,23 +1,29 @@
 const getFilteredQuery = function(category) {
   // Make an AJAX request to the server to get the filtered resources
-  $.ajax({
-    url: `/home/category/${category}`,
-    method: 'GET',
-    success: function(data) {
-      const resources = data.resources;
-      const resourceContainer = $('.resource-container');
+  $.get(`/home/category/${category}`, function(data) {
+    const resourceContainer = $('.resource-container');
 
-      // Loop through the resources and append them to the container
-      addResourceOnUI(resources, resourceContainer)
-    },
-    error: function(err) {
+    // Loop through the resources and append them to the container
+    addResourceOnUI(data.resources, resourceContainer);
+  })
+    .fail(function(err) {
       console.log('AJAX Error:', err);
-    }
-  });
+    });
+};
+
+const getMyResources = function(id) {
+  $.get(`/api/user/${id}/my-resources`, function(data) {
+    const resourceContainer = $('.resource-container');
+    // Loop through the resources and append them to the container
+    addResourceOnUI(data.resources, resourceContainer);
+  })
+    .fail(function(err) {
+      console.log('AJAX Error:', err);
+    });
 };
 
 const addResourceOnUI = function(resources, container) {
-  container.empty()
+  container.empty();
   for (let resource of resources) {
     if (!resource.rating) {
       resource.rating = '-';
@@ -80,9 +86,11 @@ $(document).ready(function() {
     e.preventDefault();
     getFilteredQuery('Other');
   });
+
+  //filter for my resources
   $('.filter-my-resource').on('click', function(e) {
     e.preventDefault();
-
+    getMyResources(3);
   });
 
 
