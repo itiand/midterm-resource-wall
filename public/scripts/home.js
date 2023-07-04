@@ -41,19 +41,21 @@ $(document).ready(function(){
 
   $('.filter-html').on('click', function(e) {
     e.preventDefault();
-    //populate
     getFilteredQuery('HTML');
   })
 
   $('.filter-css').on('click', function(e) {
     e.preventDefault();
-    //populate
     getFilteredQuery('CSS');
   })
 
-  // $('.filter-javascript').on('click', function(e) {
+  $('.filter-javascript').on('click', function(e) {
+    e.preventDefault();
+    getFilteredQuery('Javascript');
+  })
+
+  // $('.filter-version-management').on('click', function(e) {
   //   e.preventDefault();
-  //   //populate
   //   getFilteredQuery('');
   // })
 
