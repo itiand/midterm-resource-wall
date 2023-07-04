@@ -41,7 +41,7 @@
   </div>
   <div class="container">
     <div class="btn-group" id="filter-group">
-      <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
         Categories
       </button>
       <ul class="dropdown-menu">
@@ -56,7 +56,7 @@
         <li><a class="dropdown-item filter-my-resource" href="#">My Resources</a></li>
       </ul>
     </div>
-    <span class="badge badge-1 text-bg-primary resource-category d-none"></span>
+    <span class="badge badge-1 text-bg-primary resource-category d-none"><i class="fa-solid fa-x"></i> TEST</span>
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 resource-container">
     <% for (let resource of resources) { if(!resource.rating) resource.rating = '-' %>
       <div class="col">

@@ -14,7 +14,6 @@ router.get('/', (req, res) => {
   `)
     .then(data => {
       const templateVars = { resources: data.rows };
-      console.log('WALDO', templateVars);
 
       return res.render('home', templateVars);
     })
