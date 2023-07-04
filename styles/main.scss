@@ -2,3 +2,43 @@ $blue-munsell: #3891a6ff;
 $feldgrau: #4c5b5cff;
 $maize: #fde74cff;
 $lightgray: #f7f7f7;
+
+.col {
+  .card {
+    height: 100%;
+  }
+
+  img {
+    height: 75%;
+  }
+
+  .card-body {
+    height: 25%;
+  }
+}
+
+.badge-1 {
+  background-color: red !important;
+}
+
+.badge-2 {
+background-color: blue !important;
+}
+.badge-3 {
+background-color: pink !important;
+}
+.badge-4 {
+background-color: purple !important;
+}
+
+.badge-5 {
+background-color:plum  !important;
+}
+
+.badge-6 {
+background-color: palegoldenrod !important;
+}
+
+.badge-7 {
+background-color: orange !important;
+}
