@@ -31,7 +31,12 @@ const getFilteredQuery = function(category) {
             </div>
           </div>
         </div>`;
+
+
         resourceContainer.append(card);
+        const currentBadge = `<span class="badge badge-${resource.category_id.toString() } text-bg-primary resource-category">${resource.category_name}</span>`
+        $('#filter-group').next().remove()
+        $('#filter-group').after(currentBadge);
       }
     },
     error: function(err) {
