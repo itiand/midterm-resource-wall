@@ -1,0 +1,70 @@
+
+<!-- Scricpt to open Modal -->
+<!-- <script type="text/javascript">
+  $(document).ready(function(){
+  $('.modal').modal('show');
+});
+  $(function () {
+      $("#modal-add-icon li a").click(function () {
+        console.log("did modal open?")
+        $('#basicModal').modal('show');
+      })
+  });
+</script> -->
+
+
+<div>
+
+<button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#basicModal">
+  Add Resource
+</button>
+
+  <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Basic Modal</h4>
+            </div>
+            <div class="modal-body">
+                <h3>Modal Body</h3>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+  </div>
+
+<!-- Nav Bar -->
+  <nav class="navbar fixed-bottom navbar-expand-lg">
+    <a class="navbar-brand">
+      <img src="images/Foldr-white.png" alt="Foldr LOGO" width = "60" height="50" alt="Folder LOGO">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon">Menu</span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/login"><i class="fa-solid fa-house"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/add"><i class="fa-solid fa-folder-plus"></i></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/login"><i class="fa-solid fa-heart"></i></a>
+        </li>
+      </ul>
+
+      <form class="form-inline my-2 my-lg-0">
+        <input id= "search-text" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button id= "search" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
+      </form>
+    </div>
+  </nav>
+
+</div>

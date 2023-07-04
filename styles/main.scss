@@ -1,0 +1,49 @@
+$blue-munsell: #3891a6ff;
+$feldgrau: #4c5b5cff;
+$maize: #fde74cff;
+$lightgray: #f7f7f7;
+
+.col {
+  .card {
+    height: 100%;
+  }
+
+  img {
+    height: 65%;
+  }
+
+  .card-body {
+    height: 35%;
+  }
+}
+
+.rating-badge {
+  background-color: lightgrey;
+}
+.badge-1 {
+  background-color: #BBD8B3 !important;
+}
+
+.badge-2 {
+  background-color: #F3B61F !important;
+}
+
+.badge-3 {
+  background-color: #A29F15 !important;
+}
+
+.badge-4 {
+  background-color: #90423e !important;
+}
+
+.badge-5 {
+  background-color: #C08497 !important;
+}
+
+.badge-6 {
+  background-color: #036016 !important;
+}
+
+.badge-7 {
+  background-color: #40476D !important;
+}

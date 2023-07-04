@@ -16,23 +16,27 @@ body {
   h1 {
     font-family: 'Fjalla One', sans-serif;
     color: $blue-munsell;
-    }
+  }
 }
 
-  .title {
-    font-size: 5em;
-  }
+.title {
+  font-size: 5em;
+}
 
-  .btn {
+.btn {
   background-color: $feldgrau;
   color: white;
   border: none;
   border-radius: 5px;
   padding: 0.5em 1em;
   margin: 1em;
-  }
+    &:hover {
+      background-color: $feldgrau;
+      color: $maize;
+    }
+}
 
-.container {
+.home-container {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -47,5 +51,3 @@ body {
   }
 
 }
-
-
