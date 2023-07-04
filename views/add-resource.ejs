@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Add</title>
+
+  <meta charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="styles/landing.css">
+  <link rel="stylesheet" href="styles/nav-bar.css">
+
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/app.js"></script>
+  <script defer src="/scripts/add.js"></script>
+  <script src="/scripts/landing.js"></script>
+  <script src="/scripts/nav-bar.js"></script>
+
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Add Resource</h1>
+
+    <form id="resource-form" method="POST" action="/add">
+
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Title *</label>
+        <input type="text" class="form-control" id="Title" placeholder="Name of Resource" name="title" required>
+      </div>
+
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Decription *</label>
+        <textarea class="form-control" id="Description" rows="3" name="description" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="exampleFormControlInput1">URL *</label>
+        <input type="text" class="form-control" id="url" placeholder="Link to Resource" name="url" required>
+      </div>
+
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Thumbnail URL</label>
+        <input type="text" class="form-control" id="photo_url" placeholder="URL for Image" name="photo_url">
+      </div>
+
+
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Category *</label>
+        <select class="form-control" id="category_id">
+          <option>1-HTML</option>
+          <option>2-CSS</option>
+          <option>3-Javascript</option>
+          <option>4-Version Managment</option>
+          <option>5-Databases</option>
+          <option>6-Testing</option>
+          <option>7-Other</option>
+        </select>
+      </div>
+
+      <button class="btn btn-primary" id= "addResource" type="submit">ADD</button>
+
+    </form>
+
+  </div>
+
+  <footer>
+    <%- include('partials/_nav-bar') %>
+  </footer>
+
+</body>
+</html>
