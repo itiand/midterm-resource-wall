@@ -9,14 +9,17 @@ $lightgray: #f7f7f7;
   }
 
   img {
-    height: 75%;
+    height: 65%;
   }
 
   .card-body {
-    height: 25%;
+    height: 35%;
   }
 }
 
+.rating-badge {
+  background-color: lightgrey;
+}
 .badge-1 {
   background-color: #BBD8B3 !important;
 }
@@ -30,7 +33,7 @@ $lightgray: #f7f7f7;
 }
 
 .badge-4 {
-  background-color: #510D0A !important;
+  background-color: #90423e !important;
 }
 
 .badge-5 {
