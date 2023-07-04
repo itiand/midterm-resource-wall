@@ -10,6 +10,9 @@ const getFilteredQuery = function(category) {
 
       // Loop through the resources and append them to the container
       for (let resource of resources) {
+        if (!resource.rating) {
+          resource.rating = 'No rating'
+        }
         const card = `<div class="col">
           <div class="card">
             <img src="${resource.photo_url}" class="card-img-top resource-photoURL" alt="...">
@@ -54,10 +57,25 @@ $(document).ready(function(){
     getFilteredQuery('Javascript');
   })
 
-  // $('.filter-version-management').on('click', function(e) {
-  //   e.preventDefault();
-  //   getFilteredQuery('');
-  // })
+  $('.filter-version-management').on('click', function(e) {
+    e.preventDefault();
+    getFilteredQuery('Version Management');
+  })
+
+  $('.filter-databases').on('click', function(e) {
+    e.preventDefault();
+    getFilteredQuery('Databases');
+  })
+
+  $('.filter-testing').on('click', function(e) {
+    e.preventDefault();
+    getFilteredQuery('Testing');
+  })
+
+  $('.filter-other').on('click', function(e) {
+    e.preventDefault();
+    getFilteredQuery('Other');
+  })
 
 
 

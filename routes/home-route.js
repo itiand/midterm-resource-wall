@@ -11,7 +11,6 @@ router.get('/', (req, res) => {
   FROM resources
   JOIN users ON users.id = resources.user_id
   JOIN categories ON categories.id = resources.category_id;
-
   `)
     .then(data => {
       const templateVars = { resources: data.rows };

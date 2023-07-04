@@ -48,7 +48,7 @@
         <li><a class="dropdown-item filter-html" href="#">HTML</a></li>
         <li><a class="dropdown-item filter-css" href="#">CSS</a></li>
         <li><a class="dropdown-item filter-javascript" href="#">Javascript</a></li>
-        <li><a class="dropdown-item filter-version-management" href="#">Version Managment</a></li>
+        <li><a class="dropdown-item filter-version-management" href="#">Version Management</a></li>
         <li><a class="dropdown-item filter-databases" href="#">Databases</a></li>
         <li><a class="dropdown-item filter-testing" href="#">Testing</a></li>
         <li><a class="dropdown-item filter-other" href="#">Other</a></li>
@@ -57,7 +57,7 @@
       </ul>
     </div>
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 resource-container">
-    <% for (let resource of resources) { console.log('amy', resource); %>
+    <% for (let resource of resources) { if(!resource.rating) resource.rating = 'No rating' %>
       <div class="col">
         <div class="card">
           <img src="<%= resource.photo_url %>"  class="card-img-top resource-photoURL" alt="...">
