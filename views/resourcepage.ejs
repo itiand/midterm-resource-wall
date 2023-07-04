@@ -47,13 +47,6 @@
       <h2 class="card-title"><%= resource.title %></h2>
 
       <div class="card">
-        <img src="<%= resource.photo_url %>" class="card-img-top resource-photoURL" alt="...">
-        <div class="card-body">
-            <h5 class="card-title resource-title"><%= resource.title %></h5>
-            <p class="card-text resource-description"><%= resource.description %></p>
-            <div class="card-footer text-body-secondary d-flex justify-content-between">
-            <div class="flex-left">
-                <div class="card">
                     <img src="<%= resource.photo_url %>" class="card-img-top resource-photoURL" alt="...">
                     <div class="card-body">
                         <h5 class="card-title resource-title"><%= resource.title %></h5>
@@ -98,8 +91,7 @@
 
   <footer>
     <nav>
- 
-
+        <%- include('partials/_nav-bar') %>
     </nav>
   </footer>
 
