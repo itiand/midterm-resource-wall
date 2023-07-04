@@ -1,7 +1,7 @@
 const getFilteredQuery = function(category) {
   // Make an AJAX request to the server to get the filtered resources
   $.ajax({
-    url: `/home/${category}`, // Replace with the actual route on the server that handles the filtering
+    url: `/home/category/${category}`, // Replace with the actual route on the server that handles the filtering
     method: 'GET',
     success: function(data) {
       const resources = data.resources;
@@ -41,12 +41,22 @@ $(document).ready(function(){
 
   $('.filter-html').on('click', function(e) {
     e.preventDefault();
-
-    console.log('TEST', e.target.value);
-
     //populate
-
     getFilteredQuery('HTML');
   })
+
+  $('.filter-css').on('click', function(e) {
+    e.preventDefault();
+    //populate
+    getFilteredQuery('CSS');
+  })
+
+  // $('.filter-javascript').on('click', function(e) {
+  //   e.preventDefault();
+  //   //populate
+  //   getFilteredQuery('');
+  // })
+
+
 
 })

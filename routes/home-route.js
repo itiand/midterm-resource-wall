@@ -25,7 +25,34 @@ router.get('/', (req, res) => {
 
 
 // Server route to handle the filtering
-router.get('/HTML', (req, res) => {
+// router.get('/category/HTML', (req, res) => {
+//   const filteredQuery = `SELECT resources.*, users.username, categories.name AS category_name,
+//     (SELECT ROUND(AVG(number_rating), 1)
+//     FROM ratings
+//     WHERE resources.id = ratings.resource_id) AS rating
+//     FROM resources
+//     JOIN users ON users.id = resources.user_id
+//     JOIN categories ON categories.id = resources.category_id
+//     WHERE categories.name = 'HTML';`; // Replace 'html' with the selected category
+
+//   db.query(filteredQuery)
+//     .then(data => {
+//       console.log('WE HERE', data.rows);
+
+//       const filteredResources = data.rows;
+
+//       return res.json({ resources: filteredResources });
+
+//     })
+//     .catch(err => {
+//       console.log("dbQueryErr", err);
+//       res.status(500).json({ error: 'Internal server error' });
+//     });
+// });
+
+router.get('/category/:category', (req, res) => {
+  const category = req.params.category;
+
   const filteredQuery = `SELECT resources.*, users.username, categories.name AS category_name,
     (SELECT ROUND(AVG(number_rating), 1)
     FROM ratings
@@ -33,16 +60,12 @@ router.get('/HTML', (req, res) => {
     FROM resources
     JOIN users ON users.id = resources.user_id
     JOIN categories ON categories.id = resources.category_id
-    WHERE categories.name = 'HTML';`; // Replace 'html' with the selected category
+    WHERE categories.name = $1;`;
 
-  db.query(filteredQuery)
+  db.query(filteredQuery, [category])
     .then(data => {
-      console.log('WE HERE', data.rows);
-
       const filteredResources = data.rows;
-
-      return res.json({ resources: filteredResources });
-
+      res.json({ resources: filteredResources });
     })
     .catch(err => {
       console.log("dbQueryErr", err);
