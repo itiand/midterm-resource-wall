@@ -21,11 +21,11 @@ CREATE TABLE users (
 CREATE TABLE resources (
   id SERIAL PRIMARY KEY NOT NULL,
   title VARCHAR(255) NOT NULL,
-  url VARCHAR(255) NOT NULL,
+  url VARCHAR(500) NOT NULL,
   description TEXT NOT NULL,
   category_id INT REFERENCES categories(id) ON DELETE CASCADE NOT NULL,
   user_id INT REFERENCES users(id) ON DELETE CASCADE NOT NULL,
-  photo_url VARCHAR(255) DEFAULT 'https://i.imgur.com/0dqdq3m.jpeg'
+  photo_url VARCHAR(500) DEFAULT 'https://i.imgur.com/0dqdq3m.jpeg'
 );
 
 
