@@ -41,7 +41,7 @@ const addResourceOnUI = function(resources, container) {
     }
     const card = `<div class="col">
       <div class="card">
-        <img src="${resource.photo_url}" class="card-img-top resource-photoURL" alt="...">
+        <img src="${resource.photo_url}" class="card-img-top resource-photoURL resource-img" alt="...">
         <div class="card-body">
           <h5 class="card-title resource-title">${resource.title}</h5>
           <p class="card-text resource-description">${resource.description}</p>
