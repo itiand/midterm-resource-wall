@@ -41,7 +41,7 @@
   </div>
   <div class="container">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-      <div class="col">
+      <!-- <div class="col">
         <div class="card">
           <img src="https://i.imgur.com/0dqdq3m.jpeg" class="card-img-top resource-photoURL" alt="...">
           <div class="card-body">
@@ -55,7 +55,7 @@
             <div class="flex-right"><span class="badge text-bg-primary resource-category">Primary | 3/5</span></div>
           </div>
         </div>
-      </div>
+      </div> -->
     <% for (let resource of resources) { console.log('amy', resource); %>
       <div class="col">
         <div class="card">
@@ -68,7 +68,10 @@
             <div class="flex-left">
               <p class="mb-0 resource-userId"><%= resource.username %>'s resource</p>
             </div>
-            <div class="flex-right"><span class="badge badge-<%= resource.category_id.toString() %> text-bg-primary resource-category"><%= resource.category_name %> | <%= resource.rating %>/5</span></div>
+            <div class="flex-right">
+              <span class="badge badge-<%= resource.category_id.toString() %> text-bg-primary resource-category"><%= resource.category_name %></span>
+              <span class="badge text-bg-secondary"><%= resource.rating.toString() %></span>
+            </div>
           </div>
         </div>
       </div>
