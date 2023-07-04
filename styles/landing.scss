@@ -30,6 +30,10 @@ body {
   border-radius: 5px;
   padding: 0.5em 1em;
   margin: 1em;
+    &:hover {
+      background-color: $feldgrau;
+      color: $maize;
+    }
   }
 
 .container {
