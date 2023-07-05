@@ -52,8 +52,8 @@
 
             <div class="form-group">
               <label for="category_id">Category *</label>
-              <select class="form-control" id="category_id">
-                <option>1-HTML</option>
+              <select class="form-control" id="category_id" name="category_id">
+                <option data-categoryid="1">1-HTML</option>
                 <option>2-CSS</option>
                 <option>3-Javascript</option>
                 <option>4-Version Managment</option>
@@ -62,6 +62,7 @@
                 <option>7-Other</option>
               </select>
             </div>
+
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <button class="btn btn-primary submit" id="addResource" type="submit">ADD</button>

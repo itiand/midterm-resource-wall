@@ -23,14 +23,15 @@ $(() => {
       url: '/api/users'
     })
     .done((response) => {
-      const $user1 = $('#input-fullname');
-      $user1.empty();
+      // const $user1 = $('#input-fullname');
+      // $user1.empty();
 
       console.log("what is this response", response)
 
       for(const user of response.users) {
-        if( user.id === 1){
-          $(`<div class="putithere">`).text(user.name);
+        if( user.id === 1) {
+          console.log("user1", user.name)
+          $(`<input id="input-fullname">`).text(user.name);
         }
       }
     });
