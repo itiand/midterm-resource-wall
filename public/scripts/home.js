@@ -122,7 +122,7 @@ const getAllResources = function() {
     //on click on card title or img -> go to single resource page
     $('.resource-container').on('click', '.card-img-top, .card-title', function() {
       const resourceId = $(this).closest('.card').data('id');
-      const url = `/resource/${resourceId}`; // Replace with the actual URL of your EJS page
+      const url = `/resource/${resourceId}`;
 
       window.location.href = url;
     });
