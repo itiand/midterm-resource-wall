@@ -5,7 +5,7 @@ const db = require('../db/connection');
 
 router.get('/:id', (req, res) => {
     let id = req.params.id
-    db.query('SELECT * FROM resources WHERE id = $1',[id]).then(data => {
+    db.query('SELECT resources.*,users.username AS username FROM resources JOIN users ON users.id = resources.user_id WHERE resources.id = $1',[id]).then(data => {
         const templateVars = { resource: data.rows[0]};
         console.log('WALDO RESOURCE', templateVars);
         return res.render('resourcepage', templateVars);
@@ -23,4 +23,16 @@ router.post('/:id/like', (req, res) => {
         .catch(err => console.log("dbQueryErr", err));
 });
 
-module.exports = router;
+router.post('/:id/comment', (req, res) => {
+    let id = req.params.id
+    let comment = req.body.comment
+    console.log(comment, req,req.body)
+    // const userid = req.session.userid 
+    const user_id = 1
+    db.query('INSERT INTO comments (resource_id, user_id, comment) VALUES ($1, $2, $3);',[id, user_id,comment]).then(data => {
+        res.send({message:"Resource Comment"})
+      })
+        .catch(err => console.log("dbQueryErr", err));
+});
+
+module.exports = router
