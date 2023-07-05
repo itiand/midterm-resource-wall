@@ -119,17 +119,7 @@ const getAllResources = function() {
       getAllResources();
     });
 
-    $(document).on('click', '.resource-photoURL', function(e) {
-      e.preventDefault();
-      console.log(this);
-      $.get(`/resources/`)
-      // $(this).addClass('d-none');
-      // $(this).parent().addClass('d-none');
-
-      // //render back all resources
-      // getAllResources();
-    });
-
+    //on click on card title or img -> go to single resource page
     $('.resource-container').on('click', '.card-img-top, .card-title', function() {
       const resourceId = $(this).closest('.card').data('id');
       const url = `/resource/${resourceId}`; // Replace with the actual URL of your EJS page
