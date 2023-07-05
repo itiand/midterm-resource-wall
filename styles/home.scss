@@ -2,3 +2,19 @@
 .resource-title:hover {
   cursor: pointer;
 }
+
+@media (min-width: 768px) {
+  .col {
+    .card {
+      height: 100%;
+    }
+
+    img {
+      height: 65%;
+    }
+
+    .card-body {
+      height: 35%;
+    }
+  }
+}

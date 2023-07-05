@@ -5,7 +5,6 @@ const router = express.Router();
 
 
 router.get('/', (req, res) => {
-  // res.send("Hello!")
   res.render('login');
 });
 
@@ -13,27 +12,26 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   const { email, password } = req.body;
 
-  // Use the findUserByEmail function to find the user by email
+  // use the findUserByEmail function to find the user by email
   findUserByEmail(email)
     .then(user => {
       if (user) {
         console.log('userData', user);
 
-        //if found check password
         if (user.password === password) {
-          res.redirect('/home');
-        } else {
-          console.log('wrong password');
+          // Login successful, respond with a success message
+          return res.json({ message: 'Login successful' });
         }
-      } else {
-        //slide down --> user not found
       }
+
+      // login failed, give an error message
+      res.status(401).json({ error: 'Incorrect email or password' });
     })
     .catch(err => {
-      res.status(500).send('Internal Server Error');
+      res.status(500).send('Internal Server Error', err);
     });
-
 });
+
 
 module.exports = router;
 

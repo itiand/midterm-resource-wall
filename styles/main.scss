@@ -55,18 +55,12 @@ $lightgray: #f7f7f7;
 }
 
 
-@include media-breakpoint-up(md) {
-  .col {
-    .car {
-      height: 100%;
-    }
+#errorMessage {
+  text-align: center;
+  border: 3px red solid;
+  color: red;
+  padding: 0.5rem 0;
+  margin-bottom: 1.7rem;
+  display: none;
+}
 
-    img {
-      height: 65%;
-    }
-
-    .card-body {
-      height: 35%;
-    }
-  }
- }
