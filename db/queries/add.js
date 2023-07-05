@@ -7,9 +7,14 @@ const addResource = (title, url, description, category_id, user_id, photo_url) =
       RETURNING *;`,
     [title, url, description, category_id, user_id, photo_url])
 
-    // .then(data => {
-    //   return data.rows;
-    // });
+    .then(data => {
+      return data.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
 };
 
 module.exports = { addResource };
+
+
