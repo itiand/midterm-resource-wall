@@ -16,8 +16,8 @@ router.get('/:id', (req, res) => {
 router.post('/:id/like', (req, res) => {
     let id = req.params.id
     // const userid = req.session.userid 
-    const userid = 1
-    db.query('INSERT INTO favourites (resource_id, user_id) VALUES ($1, $2);',[id, userid]).then(data => {
+    const user_id = 1
+    db.query('INSERT INTO favourites (resource_id, user_id) VALUES ($1, $2);',[id, user_id]).then(data => {
         res.send({message:"Resource Liked"})
       })
         .catch(err => console.log("dbQueryErr", err));
