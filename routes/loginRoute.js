@@ -14,6 +14,12 @@ router.get('/', (req, res) => {
  res.render('login');
 });
 
+
+router.post('/', (req, res) => {
+
+  console.log('TRUE', req.body); //{ username: 'chris', email: 'chris@gmail.com' }
+})
+
 module.exports = router;
 
 
