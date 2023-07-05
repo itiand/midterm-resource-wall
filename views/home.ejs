@@ -26,7 +26,10 @@
 
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
-  <link rel="stylesheet" href="styles/landing.css">
+  <link rel="stylesheet" href="/styles/landing.css">
+  <link rel="stylesheet" href="/styles/home.css">
+
+
 
 
   <script src="/vendor/jquery-3.0.0.js"></script>
@@ -40,26 +43,27 @@
     <h1 class="title">Foldr</h1>
   </div>
   <div class="container">
-    <div class="btn-group">
-      <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    <div class="btn-group" id="filter-group">
+      <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
         Categories
       </button>
       <ul class="dropdown-menu">
         <li><a class="dropdown-item filter-html" href="#">HTML</a></li>
         <li><a class="dropdown-item filter-css" href="#">CSS</a></li>
         <li><a class="dropdown-item filter-javascript" href="#">Javascript</a></li>
-        <li><a class="dropdown-item filter-version-management" href="#">Version Managment</a></li>
+        <li><a class="dropdown-item filter-version-management" href="#">Version Management</a></li>
         <li><a class="dropdown-item filter-databases" href="#">Databases</a></li>
         <li><a class="dropdown-item filter-testing" href="#">Testing</a></li>
         <li><a class="dropdown-item filter-other" href="#">Other</a></li>
         <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">Separated link</a></li>
+        <li><a class="dropdown-item filter-my-resource" href="#">My Resources</a></li>
       </ul>
     </div>
+    <span class="badge badge-1 text-bg-primary resource-category d-none"><i class="fa-solid fa-x"></i> TEST</span>
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 resource-container">
-    <% for (let resource of resources) { console.log('amy', resource); %>
+    <% for (let resource of resources) { if(!resource.rating) resource.rating = '-' %>
       <div class="col">
-        <div class="card">
+        <div class="card" data-id="<%= resource.id %>">
           <img src="<%= resource.photo_url %>"  class="card-img-top resource-photoURL" alt="...">
           <div class="card-body">
             <h5 class="card-title resource-title"><%= resource.title %></h5>
@@ -79,5 +83,6 @@
     <% } %>
     </div>
   </div>
+  <%- include('partials/_nav-bar') %>
 </body>
 </html>

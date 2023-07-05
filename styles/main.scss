@@ -5,45 +5,68 @@ $lightgray: #f7f7f7;
 
 .col {
   .card {
-    height: 100%;
-  }
-
-  img {
-    height: 65%;
-  }
-
-  .card-body {
-    height: 35%;
+    border: none;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
   }
 }
 
-.rating-badge {
-  background-color: lightgrey;
+.fa-square-xmark:hover {
+  cursor: pointer;
 }
-.badge-1 {
+
+.rating-badge,
+.badge-my-resource {
+  background-color: $blue-munsell;
+}
+
+.badge-1,
+.badge-HTML {
   background-color: #BBD8B3 !important;
 }
-
-.badge-2 {
+.badge-2,
+.badge-CSS {
   background-color: #F3B61F !important;
 }
-
-.badge-3 {
+.badge-3,
+.badge-Javascript {
   background-color: #A29F15 !important;
 }
-
-.badge-4 {
+.badge-4,
+.badge-Version {
   background-color: #90423e !important;
 }
-
-.badge-5 {
+.badge-5,
+.badge-Databases {
   background-color: #C08497 !important;
 }
-
-.badge-6 {
+.badge-6,
+.badge-Testing {
   background-color: #036016 !important;
 }
-
-.badge-7 {
+.badge-7,
+.badge-Other {
   background-color: #40476D !important;
 }
+
+.btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
+  color: var(--bs-btn-active-color);
+  background-color: var(--bs-btn-active-bg);
+  border-color: var(--bs-btn-active-border-color);
+}
+
+
+@include media-breakpoint-up(md) {
+  .col {
+    .car {
+      height: 100%;
+    }
+
+    img {
+      height: 65%;
+    }
+
+    .card-body {
+      height: 35%;
+    }
+  }
+ }
