@@ -18,7 +18,6 @@ router.get('/', (req, res) => {
       return res.render('home', templateVars);
     })
     .catch(err => console.log("dbQueryErr", err));
-
 });
 
 

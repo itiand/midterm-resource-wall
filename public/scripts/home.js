@@ -40,8 +40,8 @@ const addResourceOnUI = function(resources, container) {
       resource.rating = '-';
     }
     const card = `<div class="col">
-      <div class="card">
-        <img src="${resource.photo_url}" class="card-img-top resource-photoURL resource-img" alt="...">
+      <div class="card" data-id="${resource.id}">
+        <img src="${resource.photo_url}" class="card-img-top resource-photoURL resource-photoURL" alt="...">
         <div class="card-body">
           <h5 class="card-title resource-title">${resource.title}</h5>
           <p class="card-text resource-description">${resource.description}</p>
@@ -118,4 +118,24 @@ const getAllResources = function() {
       //render back all resources
       getAllResources();
     });
+
+    $(document).on('click', '.resource-photoURL', function(e) {
+      e.preventDefault();
+      console.log(this);
+      $.get(`/resources/`)
+      // $(this).addClass('d-none');
+      // $(this).parent().addClass('d-none');
+
+      // //render back all resources
+      // getAllResources();
+    });
+
+    $('.resource-container').on('click', '.card-img-top, .card-title', function() {
+      const resourceId = $(this).closest('.card').data('id');
+      const url = `/resource/${resourceId}`; // Replace with the actual URL of your EJS page
+
+      window.location.href = url;
+    });
+
+
   });

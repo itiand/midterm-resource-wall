@@ -63,7 +63,7 @@
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 resource-container">
     <% for (let resource of resources) { if(!resource.rating) resource.rating = '-' %>
       <div class="col">
-        <div class="card">
+        <div class="card" data-id="<%= resource.id %>">
           <img src="<%= resource.photo_url %>"  class="card-img-top resource-photoURL" alt="...">
           <div class="card-body">
             <h5 class="card-title resource-title"><%= resource.title %></h5>
