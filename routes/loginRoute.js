@@ -1,13 +1,18 @@
 
 const { findUserByEmail, isLoggedIn, isUsersURL } = require('../lib/helpers');
 const express = require('express');
+const cookieSession = require('cookie-session');
 const router = express.Router();
 
+
+router.use(cookieSession({
+  name: 'session',
+  keys: ['barney', 'is', 'a', 'dinosaur', 'mary had a little', 'lamb']
+}));
 
 router.get('/', (req, res) => {
   res.render('login');
 });
-
 
 router.post('/', (req, res) => {
   const { email, password } = req.body;
@@ -19,11 +24,11 @@ router.post('/', (req, res) => {
         console.log('userData', user);
 
         if (user.password === password) {
+          req.session.user_id = user.id
           // Login successful, respond with a success message
           return res.json({ message: 'Login successful' });
         }
       }
-
       // login failed, give an error message
       res.status(401).json({ error: 'Incorrect email or password' });
     })

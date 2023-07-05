@@ -2,6 +2,7 @@
 require('dotenv').config();
 
 // Web server config
+const cookieSession = require('cookie-session');
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
@@ -27,6 +28,13 @@ app.use(
   })
 );
 app.use(express.static('public'));
+
+app.use(
+  cookieSession({
+    name: 'session',
+    keys: ['barney', 'is', 'a', 'dinosaur', 'mary had a little', 'lamb'],
+  })
+);
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
