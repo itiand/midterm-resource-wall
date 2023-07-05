@@ -1,4 +1,21 @@
 // Client facing scripts here
+// $(() => {
+//   $('#fetch-users').on('click', () => {
+//     $.ajax({
+//       method: 'GET',
+//       url: '/api/users'
+//     })
+//     .done((response) => {
+//       const $usersList = $('#users');
+//       $usersList.empty();
+
+//       for(const user of response.users) {
+//         $(`<li class="user">`).text(user.name).appendTo($usersList);
+//       }
+//     });
+//   });
+// });
+
 $(() => {
   $('#fetch-users').on('click', () => {
     $.ajax({
@@ -6,11 +23,16 @@ $(() => {
       url: '/api/users'
     })
     .done((response) => {
-      const $usersList = $('#users');
-      $usersList.empty();
+      // const $user1 = $('#input-fullname');
+      // $user1.empty();
+
+      console.log("what is this response", response)
 
       for(const user of response.users) {
-        $(`<li class="user">`).text(user.name).appendTo($usersList);
+        if( user.id === 1) {
+          console.log("user1", user.name)
+          $(`<input id="input-fullname">`).text(user.name);
+        }
       }
     });
   });

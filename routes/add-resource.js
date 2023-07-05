@@ -9,17 +9,13 @@ router.get('/', (req, res) => {
  res.render('add-resource');
 });
 
-
-
-router.post("/", (req, res) => {
-  const resource = req.body;
-  const user_id = 1  // will need to be a cookie
-
+router.post('/', (req, res) => {
+  console.log("rquest", req.body)
+  const user_id = 1
   addResourceQueries
-      .addResource(resource.title, resource.url, resource.description, resource.category_id, user_id, resource.photo_url)
-   //this funct has a hard coded user_id
-      .then(() => {
-    res.redirect("/") //to resource/:id ????
+    .addResource(req.body.title, req.body.url, req.body.description, req.body.category_id, user_id, req.body.photo_url)
+    .then(() => {
+      res.redirect("/") //to resource/:id ????
     })
     .catch((e) => {
       console.error(e);

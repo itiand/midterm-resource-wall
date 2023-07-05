@@ -1,20 +1,25 @@
 $(() => {
-  $('#resource-form').on('submit', (event) => {
+  console.log("we're here", $('#resource-form'))
+
+  $('#resource-form').submit(function(event) {
+    console.log("event", event)
     event.preventDefault()
-    const data = {
-      title: event.target.title.value,
-      description: event.target.description.value,
-      url: event.target.url.value,
-      photo_url: event.target.photo_url.value,
-      category_id: 1 // add dynamic selected category id
-    }
+    const data = $(this).serialize();
+    // const data = {
+    //   title: event.target.title.value,
+    //   description: event.target.description.value,
+    //   url: event.target.url.value,
+    //   photo_url: event.target.photo_url.value,
+    //   category_id: event.target.category_id.value
+    // }
 
     $.ajax({
       method: 'POST',
       url: '/add',
       data
     })
-    .done((response) => {
+
+    .then((response) => {
       console.log("response", response)
       // window.location.href
       // const $usersList = $('#users');

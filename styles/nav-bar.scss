@@ -18,7 +18,14 @@ $lightgray: #f7f7f7;
 .navbar-toggler-icon {
   color: white;
 }
-
+.nav-button {
+  color:white;
+  border: none;
+  background-color: $blue-munsell;
+  &:hover {
+        color: $maize;
+        }
+}
 .navbar{
   .collapse{
   .form-inline{
