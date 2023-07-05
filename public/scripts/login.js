@@ -1,3 +1,11 @@
+const showErrorBanner = function(message) {
+  $('#errorMessage').text(message);
+  $('#errorMessage').slideDown();
+  setTimeout(() => {
+    $('#errorMessage').slideUp();
+  }, 5000);
+};
+
 $(document).ready(function() {
   $('#loginForm').submit(function(e) {
     e.preventDefault();
@@ -14,7 +22,7 @@ $(document).ready(function() {
       .fail(function(error) {
         // responds with an error? display the error message on the page
         const errorMessage = error.responseJSON && error.responseJSON.error ? error.responseJSON.error : 'An error occurred';
-        $('#errorMessage').text(errorMessage).slideDown();
+        showErrorBanner(errorMessage);
       });
   });
 });

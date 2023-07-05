@@ -36,7 +36,9 @@
   <div class="home-container">
     <img src="images/foldr.png" alt="logo" width="30%">
     <h1 class="title mb-4">Login</h1>
-    <div id="errorMessage">Error</div>
+    <div id="errorMessage" class="alert alert-warning" role="alert">
+      Error
+    </div>
     <form id="loginForm" action="/login" method="POST">
       <div class="form-group mb-2">
         <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
