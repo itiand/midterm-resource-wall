@@ -10,8 +10,12 @@ $(document).ready(function() {
   $('#loginForm').submit(function(e) {
     e.preventDefault();
 
+    if($('#exampleInputEmail1').val() === ''
+    || $('#exampleInputPassword1').val() === '') {
+      showErrorBanner('Both email and password fields must be filled.');
+      return
+    }
     const formData = $(this).serialize();
-
     //  AJAX request to validate the login
     $.post('/login', formData)
       .done(function(response) {
