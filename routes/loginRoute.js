@@ -5,10 +5,10 @@ const cookieSession = require('cookie-session');
 const router = express.Router();
 
 
-router.use(cookieSession({
-  name: 'session',
-  keys: ['barney', 'is', 'a', 'dinosaur', 'mary had a little', 'lamb']
-}));
+// router.use(cookieSession({
+//   name: 'session',
+//   keys: ['barney', 'is', 'a', 'dinosaur', 'mary had a little', 'lamb']
+// }));
 
 router.get('/', (req, res) => {
   res.render('login');
