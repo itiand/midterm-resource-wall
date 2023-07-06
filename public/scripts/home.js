@@ -126,6 +126,4 @@ const getAllResources = function() {
 
       window.location.href = url;
     });
-
-
   });

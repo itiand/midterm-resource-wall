@@ -48,6 +48,7 @@ const resourceRoutes = require('./routes/resource');
 const resourcesRoutes = require('./routes/resources-api');
 const addResourceRoutes = require('./routes/add-resource');
 const userApiRoutes  = require('./routes/user-api');
+const logoutRoutes = require('./routes/logoutRoute');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -62,6 +63,7 @@ app.use('/resource',resourceRoutes);
 app.use('/api/resources', resourcesRoutes);
 app.use('/add', addResourceRoutes);
 app.use('/api/user', userApiRoutes);
+app.use('/logout', logoutRoutes);
 
 // Home page
 // Warning: avoid creating more routes in this file!
