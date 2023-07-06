@@ -15,7 +15,7 @@ router.post('/', (req, res) => {
   addResourceQueries
     .addResource(req.body.title, req.body.url, req.body.description, req.body.category_id, user_id, req.body.photo_url)
     .then(() => {
-      res.redirect("/") //to resource/:id ????
+      res.redirect("/resource/1") //to resource/:id ????
     })
     .catch((e) => {
       console.error(e);

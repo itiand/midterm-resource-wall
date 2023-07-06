@@ -1,6 +1,30 @@
 const express = require('express');
 const router  = express.Router();
 const db = require('../db/connection');
+const userQueries = require('../db/queries/users');
+
+
+router.get('/', (req, res) => {
+ console.log("getting user")
+  userQueries.getUsers()         //returns an obj of all users
+    .then(users => {
+      res.json({ users });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
+
+router.post('/', (req, res) =>{
+  console.log("request req.body", req.body)
+  userQueries.                       //alters rows in resource db
+  updateUsers(req.body.name,req.body.username, req.body.email, req.body.password)
+  console.log("from user route POST", req.body)
+    //alert(`You have sucessfulyl changed your profile 👍 `)
+});
+
 
 router.get('/:id/my-resources', (req, res) => {
   const id = Number(req.params.id);
