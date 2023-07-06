@@ -11,7 +11,12 @@ INSERT INTO favourites (resource_id, user_id) VALUES (1, 4);
 INSERT INTO favourites (resource_id, user_id) VALUES (1, 6);
 INSERT INTO favourites (resource_id, user_id) VALUES (7, 4);
 INSERT INTO favourites (resource_id, user_id) VALUES (8, 4);
-INSERT INTO favourites (resource_id, user_id) VALUES (2, 2);
+INSERT INTO favourites (resource_id, user_id) VALUES (4, 2);
+INSERT INTO favourites (resource_id, user_id) VALUES (6, 3);
+INSERT INTO favourites (resource_id, user_id) VALUES (11, 3);
+INSERT INTO favourites (resource_id, user_id) VALUES (1, 3);
+INSERT INTO favourites (resource_id, user_id) VALUES (4, 3);
+INSERT INTO favourites (resource_id, user_id) VALUES (5, 3);
 
 
 INSERT INTO ratings (resource_id, user_id, number_rating) VALUES (1, 1, 1);

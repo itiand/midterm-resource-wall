@@ -31,6 +31,23 @@ const getMyResources = function() {
     });
 };
 
+const getLikedResources = function() {
+  $.get(`/api/user/liked`, function(data) {
+
+    // Loop through the resources and append them to the container
+    const resourceContainer = $('.resource-container');
+    addResourceOnUI(data.resources, resourceContainer);
+
+    const currentBadge = `<span class="badge badge-liked-resource resource-category"><i class="fa-solid fa-square-xmark"></i> Liked</span>`;
+    $('#filter-group').next().remove();
+    $('#filter-group').after(currentBadge);
+  })
+    .fail(function(err) {
+      console.log('AJAX Error:', err);
+    });
+};
+
+
 
 
 const addResourceOnUI = function(resources, container) {
@@ -69,61 +86,71 @@ const getAllResources = function() {
     const currentBadge = `<span class="badge resource-category d-none"><i class="fa-solid fa-square-xmark"></i> TEST</span>`;
     $('#filter-group').next().remove();
     $('#filter-group').after(currentBadge);
-  })};
-
-  $(document).ready(function() {
-
-    //FILTER LISTENERS
-    $('.filter-html').on('click', function(e) {
-      e.preventDefault();
-      getFilteredQuery('HTML');
-    });
-    $('.filter-css').on('click', function(e) {
-      e.preventDefault();
-      getFilteredQuery('CSS');
-    });
-    $('.filter-javascript').on('click', function(e) {
-      e.preventDefault();
-      getFilteredQuery('Javascript');
-    });
-    $('.filter-version-management').on('click', function(e) {
-      e.preventDefault();
-      getFilteredQuery('Version Management');
-    });
-    $('.filter-databases').on('click', function(e) {
-      e.preventDefault();
-      getFilteredQuery('Databases');
-    });
-    $('.filter-testing').on('click', function(e) {
-      e.preventDefault();
-      getFilteredQuery('Testing');
-    });
-    $('.filter-other').on('click', function(e) {
-      e.preventDefault();
-      getFilteredQuery('Other');
-    });
-
-    //filter for my resources
-    $('.filter-my-resource').on('click', function(e) {
-      e.preventDefault();
-      getMyResources();
-    });
-
-    //remove filter
-    $(document).on('click', '.fa-square-xmark', function(e) {
-      e.preventDefault();
-      $(this).addClass('d-none');
-      $(this).parent().addClass('d-none');
-
-      //render back all resources
-      getAllResources();
-    });
-
-    //on click on card title or img -> go to single resource page
-    $('.resource-container').on('click', '.card-img-top, .card-title', function() {
-      const resourceId = $(this).closest('.card').data('id');
-      const url = `/resource/${resourceId}`;
-
-      window.location.href = url;
-    });
   });
+};
+
+
+
+//ON READY
+$(document).ready(function() {
+
+  //FILTER LISTENERS
+  $('.filter-html').on('click', function(e) {
+    e.preventDefault();
+    getFilteredQuery('HTML');
+  });
+  $('.filter-css').on('click', function(e) {
+    e.preventDefault();
+    getFilteredQuery('CSS');
+  });
+  $('.filter-javascript').on('click', function(e) {
+    e.preventDefault();
+    getFilteredQuery('Javascript');
+  });
+  $('.filter-version-management').on('click', function(e) {
+    e.preventDefault();
+    getFilteredQuery('Version Management');
+  });
+  $('.filter-databases').on('click', function(e) {
+    e.preventDefault();
+    getFilteredQuery('Databases');
+  });
+  $('.filter-testing').on('click', function(e) {
+    e.preventDefault();
+    getFilteredQuery('Testing');
+  });
+  $('.filter-other').on('click', function(e) {
+    e.preventDefault();
+    getFilteredQuery('Other');
+  });
+
+  //filter for my resources
+  $('.filter-my-resource').on('click', function(e) {
+    e.preventDefault();
+    getMyResources();
+  });
+
+  //filter for my liked resources
+  $('.filter-liked').on('click', function(e) {
+    e.preventDefault();
+    getLikedResources();
+  });
+
+  //remove filter
+  $(document).on('click', '.fa-square-xmark', function(e) {
+    e.preventDefault();
+    $(this).addClass('d-none');
+    $(this).parent().addClass('d-none');
+
+    //render back all resources
+    getAllResources();
+  });
+
+  //on click on card title or img -> go to single resource page
+  $('.resource-container').on('click', '.card-img-top, .card-title', function() {
+    const resourceId = $(this).closest('.card').data('id');
+    const url = `/resource/${resourceId}`;
+
+    window.location.href = url;
+  });
+});
