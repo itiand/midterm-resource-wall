@@ -53,13 +53,14 @@
             <div class="form-group">
               <label for="category_id">Category *</label>
               <select class="form-control" id="category_id" name="category_id">
-                <option data-categoryid="1">1-HTML</option>
-                <option>2-CSS</option>
-                <option>3-Javascript</option>
-                <option>4-Version Managment</option>
-                <option>5-Databases</option>
-                <option>6-Testing</option>
-                <option>7-Other</option>
+                <option selected>Select a Category</option>
+                <option value="1">1-HTML</option>
+                <option value="2">2-CSS</option>
+                <option value="3">3-Javascript</option>
+                <option value="4">4-Version Managment</option>
+                <option value="5">5-Databases</option>
+                <option value="6">6-Testing</option>
+                <option value="7">7-Other</option>
               </select>
             </div>
 
@@ -78,17 +79,18 @@
 
 <!--Nav Bar-->
   <nav class="navbar fixed-bottom navbar-expand-lg">
-    <a class="navbar-brand">
+    <a class="navbar-brand" href="/">
       <img src="images/Foldr-white.png" alt="Foldr LOGO" width = "60" height="50" alt="Folder LOGO">
     </a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon">Menu</span>
+      <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="/login"><i class="fa-solid fa-house"></i></a>
+          <a class="nav-link" href="/"><i class="fa-solid fa-house"></i></a> <!--Home-->
         </li>
         <li class="nav-item">
           <button type="button" class="nav-button" data-toggle="modal" data-target="#exampleModal">
@@ -96,10 +98,13 @@
           </button>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/login"><i class="fa-solid fa-heart"></i></a>
+          <a class="nav-link" href="/login"><i class="fa-solid fa-heart"></i></a>  <!--MyResources-->
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/users"><i class="fa-solid fa-user-gear"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/users"><i class="fa-solid fa-right-from-bracket"></i></a> <!--logout-->
         </li>
       </ul>
 

@@ -8,6 +8,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db/connection');
+const userQueries = require('../db/queries/users');
 
 router.get('/', (req, res) => {
 
@@ -21,30 +22,11 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  console.log("waldo", req.body);
-  // db.query(`INSERT INTO users (name, username, email) VALUES (${req.body.name}, ${req.body.username}, ${req.body.email}) RETURNING *;`)
-  //   .then(data => {
-  //   console.log('WALI', data.rows);
-  //   // console.log('', data.rows)
-  //   // const templateVars = {users: data.rows}
-  //   // console.log('WALDO', templateVars);
-  //   return res.render('index');
-  // })
-  // .catch(err => console.log("dbQueryErr", err));
+  console.log("from post in routes", req.body);
+  userQueries.
+  addUser (req.body.name,req.body.username, req.body.email, req.body.password)
 
-
-  const { name, username, email } = req.body;
-  db.query('INSERT INTO users (name, username, email) VALUES ($1, $2, $3) RETURNING *;', [name, username, email])
-    .then(data => {
-      console.log('WALI', data.rows);
-      const templateVars = { users: data.rows };
-      return res.render('homepagethatdoesnotexistyet', templateVars);
-    })
     .catch(err => console.log("dbQueryErr", err));
-
-
 });
-// INSERT INTO users (name, username, email) VALUES ('Chris', 'Del', 'chris@gmail.com');
-
 
 module.exports = router;
