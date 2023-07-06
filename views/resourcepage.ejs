@@ -4,15 +4,9 @@
 <head>
     <title>Single Resource Page</title>
 
-<<<<<<< HEAD
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-=======
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
->>>>>>> single-resource-page
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,80 +45,22 @@
     <script defer src="/scripts/app.js"></script>
     <script src="/scripts/landing.js"></script>
 
-<<<<<<< HEAD
-
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-
-
-  <link rel="stylesheet" href="/styles/main.css" />
-  <link rel="stylesheet" href="/styles/layout.css" />
-  <link rel="stylesheet" href="/styles/landing.css" />
-  <link rel="stylesheet" href="/styles/resource.css" />
-
-
-  <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/app.js"></script>
-  <script src="/scripts/landing.js"></script>
-=======
->>>>>>> single-resource-page
 
 </head>
 
 <body>
-<<<<<<< HEAD
-  <div class="container">
-    <section class="resource-details">
-
-      <h1>Single Resource Page</h1>
-=======
-    <div class="container">
+    <div class="container my-5">
         <section class="resource-details">
->>>>>>> single-resource-page
 
             <h1>Single Resource Page</h1>
 
-<<<<<<< HEAD
-      <h2 class="card-title">
-        <%= resource.title %>
-      </h2>
-
-      <div class="card">
-        <img src="<%= resource.photo_url %>" class="card-img-top resource-photoURL" alt="...">
-        <div class="card-body">
-          <h5 class="card-title resource-title">
-            <%= resource.title %>
-          </h5>
-          <p class="card-text resource-description">
-            <%= resource.description %>
-          </p>
-        </div>
-        <div class="card-footer text-body-secondary d-flex justify-content-between">
-          <div class="flex-left">
-            <p class="mb-0 resource-userId">
-              <%= resource.username %>'s resource
-            </p>
-          </div>
-=======
             <div class="logo-container">
             </div>
 
             <h2 class="card-title">
+                <a href="<%= resource.url %>">
                 <%= resource.title %>
+            </a>
             </h2>
 
             <div class="card">
@@ -135,17 +71,15 @@
                             <%= resource.title %>
                         </a>
                     </h5>
-
-
                     <p class="card-text resource-description">
                         <%= resource.description %>
                     </p>
-                    <div class="card-footer text-body-secondary d-flex justify-content-between">
-                        <div class="flex-left">
-                            <p class="mb-0 resource-userId">
-                                <%= resource.username %>'s resource
-                            </p>
-                        </div>
+                </div>
+                <div class="card-footer text-body-secondary d-flex justify-content-between">
+                    <div class="flex-left">
+                        <p class="mb-0 resource-userId">
+                            <%= resource.username %>'s resource
+                        </p>
                     </div>
                 </div>
             </div>
@@ -175,29 +109,36 @@
                     </div>
                 </div>
             </div>
->>>>>>> single-resource-page
         </div>
+    
 
 
         <div id="rating1" class="star-rating" role="rating" data-rating="0">
-            <button><span onclick="show(1)" id="star1" class="star" data-value="1">&#9733;<span
-                        class="star-notification">Abysmal</span></span></button>
-            <button><span onclick="show(2)" id="star2" class="star" data-value="2">&#9733;<span
+            <button><span data-id="<%= resource.id %>" onclick="show(1)" id="star1" class="star" data-value="1">&#9733;<span
+                        class="star-notification">Very Bad</span></span></button>
+            <button><span data-id="<%= resource.id %>" onclick="show(2)" id="star2" class="star" data-value="2">&#9733;<span
                         class="star-notification">Bad</span></span></button>
-            <button><span onclick="show(3)" id="star3" class="star" data-value="3">&#9733;<span
+            <button><span data-id="<%= resource.id %>" onclick="show(3)" id="star3" class="star" data-value="3">&#9733;<span
                         class="star-notification">Ok</span></span></button>
-            <button><span onclick="show(4)" id="star4" class="star" data-value="4">&#9733;<span
+            <button><span data-id="<%= resource.id %>" onclick="show(4)" id="star4" class="star" data-value="4">&#9733;<span
                         class="star-notification">Good</span></span></button>
-            <button><span onclick="show(5)" id="star5" class="star" data-value="5">&#9733;<span
+            <button><span data-id="<%= resource.id %>" onclick="show(5)" id="star5" class="star" data-value="5">&#9733;<span
                         class="star-notification">Excellent</span></span></button>
         </div>
-        <div>
+        <div class="card my-5">
+            <ul class="list-group">
+            <% for (const comment of comments) { %>
+                <li class="list-group-item d-flex justify-content-between">
+                    <span class="lead"><%= comment.comment %></span>
+                    <span class="text-muted"> Comment by: <%= comment.username %></span>
+                </li>
+            <% } %>     
+                </ul>
+        </div>
+    </div>
 
-            New Comment Should Show Here
 
-
-<<<<<<< HEAD
-    <script>
+    <!-- <script>
 
       const likeButton = document.getElementById("likeBtn");
 
@@ -215,9 +156,7 @@
           });
       });
 
-    </script>
-=======
-        </div>
+    </script> -->
         <script>
             const show = (val) => {
                 let element = document.getElementById("star" + val);
@@ -225,7 +164,7 @@
 
                 // Send the rating value to the server using fetch or any other method
 
-                fetch(`/resource/1/rate`, {
+                fetch(`/resource/${element.getAttribute("data-id")}/rate`, {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',
@@ -268,7 +207,7 @@
 
                 commentButton.addEventListener('click', () => {
                     const comment = document.getElementById("comment").value;
-                    fetch(`/resource/1/comment`, {
+                    fetch(`/resource/${commentButton.getAttribute("data-id")}/comment`, {
                         method: 'POST',
                         headers: {
                             'Accept': 'application/json',
@@ -281,34 +220,11 @@
                             $("#comment").val('');
                             $('#commentModal').modal('hide');
                         }).then(() => {
-                            fetch('/resource/1/comment', {
-                                method: 'GET'
-                            }).then((data) => {
-                                console.log(data);
-                            }).catch((err) => {
-                                console.log(err);
-                            });
+                            window.location.reload()
                         })
                         .catch(error => {  // Handle any errors
                             console.error(error);
                         });
-                    // fetch('/resource/1/comment',{
-                    //     method: 'GET', 
-                    //     headers: {
-                    //     'Accept': 'application/json',
-                    //     'Content-Type': 'application/json'
-                    // }
-                    // })
-                    //     .then(data=> {
-                    //      // handle the response
-                    //     console.log(data);
-
-                    //     })
-                    //     .catch((err) =>{
-                    //   // handle the error
-                    //   console.log(err)
-                    //  });
-
                 });
                 const ratings = document.getElementById('rating1');
                 const rating1 = new CDB.Rating(ratings);
@@ -317,7 +233,6 @@
             });
 
         </script>
->>>>>>> single-resource-page
 
 </body>
 
