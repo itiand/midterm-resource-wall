@@ -1,17 +1,16 @@
+const cookieSession = require('cookie-session');
 const express = require('express');
 const router = express.Router();
 const addResourceQueries = require('../db/queries/add');
 
 
-
-// router.get('/', (req, res) => {
-//   // res.send("Hello!")
-//  res.render('add-resource');
-// });
+router.use(cookieSession({
+  name: 'session',
+  keys: ['barney', 'is', 'a', 'dinosaur', 'mary had a little', 'lamb']
+}));
 
 router.post('/', (req, res) => {
-  console.log("rquest", req.body);
-  const user_id = 1;
+  const user_id = req.session.user_id;
   addResourceQueries
     .addResource(req.body.title, req.body.url, req.body.description, parseInt(req.body.category_id), user_id, req.body.photo_url)
     .then((data) => {
