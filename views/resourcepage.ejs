@@ -110,7 +110,7 @@
                 </div>
             </div>
         </div>
-    
+
 
 
         <div id="rating1" class="star-rating" role="rating" data-rating="0">
@@ -132,31 +132,11 @@
                     <span class="lead"><%= comment.comment %></span>
                     <span class="text-muted"> Comment by: <%= comment.username %></span>
                 </li>
-            <% } %>     
+            <% } %>
                 </ul>
         </div>
     </div>
 
-
-    <!-- <script>
-
-      const likeButton = document.getElementById("likeBtn");
-
-      likeButton.addEventListener('click', () => {
-        fetch(`/resource/${likeButton.getAttribute("data-id")}/like`, {
-          method: 'POST',
-        })
-          .then(response => response.json())
-          .then(data => { // Handle the response from the server
-            console.log(data);
-            likeButton.style.backgroundColor = "yellow";
-          })
-          .catch(error => {  // Handle any errors
-            console.error(error);
-          });
-      });
-
-    </script> -->
         <script>
             const show = (val) => {
                 let element = document.getElementById("star" + val);
@@ -233,6 +213,9 @@
             });
 
         </script>
+<footer>
+  <%- include('partials/_nav-bar') %>
+</footer>
 
 </body>
 

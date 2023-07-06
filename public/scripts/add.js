@@ -19,15 +19,15 @@ $(() => {
       data
     })
 
-    .then((response) => {
-      console.log("response", response)
-      // window.location.href
-      // const $usersList = $('#users');
-      // $usersList.empty();
+    // .then((response) => {
+    //   console.log("response", response)
+    //   // window.location.href = '/resource/'
+    //   // const $usersList = $('#users');
+    //   // $usersList.empty();
 
-      // for(const user of response.users) {
-      //   $(`<li class="user">`).text(user.name).appendTo($usersList);
-      // }
-    });
+    //   // for(const user of response.users) {
+    //   //   $(`<li class="user">`).text(user.name).appendTo($usersList);
+    //   // }
+    // });
   });
 });
