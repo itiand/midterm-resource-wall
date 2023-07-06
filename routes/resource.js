@@ -35,4 +35,21 @@ router.post('/:id/comment', (req, res) => {
         .catch(err => console.log("dbQueryErr", err));
 });
 
+router.post('/:id/rate', (req, res) => {
+    const id = req.params.id;
+    const rating = req.body.rating;
+    // const user_id = req.session.userid;
+    const user_id = 1
+console.log("rating in backend post", rating)
+    db.query('INSERT INTO ratings (resource_id, user_id, number_rating) VALUES ($1, $2, $3);', [id, user_id, rating])
+      .then(data => {
+        res.send({ message: "Resource Rated" });
+      })
+      .catch(err => {
+        console.log("dbQueryErr", err);
+        res.status(500).send({ error: "An error occurred while rating the resource" });
+      });
+  });
+
+
 module.exports = router
