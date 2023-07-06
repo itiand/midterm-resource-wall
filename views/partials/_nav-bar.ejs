@@ -78,40 +78,42 @@
 
 
 <!--Nav Bar-->
-  <nav class="navbar fixed-bottom navbar-expand-lg">
-    <a class="navbar-brand" href="/">
-      <img src="/images/Foldr-white.png" alt="Foldr LOGO" width = "60" height="50" alt="Folder LOGO">
-    </a>
+  <nav class="navbar fixed-bottom navbar-expand-lg py-2">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <img src="/images/Foldr-white.png" alt="Foldr LOGO" width = "60" height="50" alt="Folder LOGO">
+      </a>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/home"><i class="fa-solid fa-house"></i></a> <!--Home-->
-        </li>
-        <li class="nav-item">
-          <button type="button" class="nav-button" data-toggle="modal" data-target="#exampleModal">
-            <i class="fa-solid fa-folder-plus"></i>
-          </button>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/home/liked"><i class="fa-solid fa-heart"></i></a>  <!--MyResources-->
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/users"><i class="fa-solid fa-user-gear"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/users"><i class="fa-solid fa-right-from-bracket"></i></a> <!--logout-->
-        </li>
-      </ul>
+      <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/home"><i class="fa-solid fa-house"></i></a> <!--Home-->
+          </li>
+          <li class="nav-item nav-link">
+            <button type="button" class="nav-button" data-toggle="modal" data-target="#exampleModal">
+              <i class="fa-solid fa-folder-plus"></i>
+            </button>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/home/liked"><i class="fa-solid fa-heart"></i></a>  <!--MyResources-->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/users"><i class="fa-solid fa-user-gear"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/users"><i class="fa-solid fa-right-from-bracket"></i></a> <!--logout-->
+          </li>
+        </ul>
 
-      <form class="form-inline my-2 my-lg-0">
-        <input id= "search-text" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button id= "search" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
-      </form>
+        <form class="form-inline my-2 my-lg-0 d-flex">
+          <input id= "search-text" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button id= "search" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
+        </form>
+      </div>
     </div>
   </nav>
 
