@@ -15,8 +15,8 @@ const getFilteredQuery = function(category) {
     });
 };
 
-const getMyResources = function(id) {
-  $.get(`/api/user/${id}/my-resources`, function(data) {
+const getMyResources = function() {
+  $.get(`/api/user/my-resources`, function(data) {
 
     // Loop through the resources and append them to the container
     const resourceContainer = $('.resource-container');
@@ -106,7 +106,7 @@ const getAllResources = function() {
     //filter for my resources
     $('.filter-my-resource').on('click', function(e) {
       e.preventDefault();
-      getMyResources(3);
+      getMyResources();
     });
 
     //remove filter

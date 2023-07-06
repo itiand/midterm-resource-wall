@@ -2,10 +2,9 @@ const express = require('express');
 const router  = express.Router();
 const db = require('../db/connection');
 
-router.get('/:id/my-resources', (req, res) => {
-  const id = Number(req.params.id);
-
-  console.log('BRIGHT', id);
+router.get('/my-resources', (req, res) => {
+  const id = Number(req.session.user_id);
+  console.log('WALDO', req.session.user_id);
 
   const filteredQuery = `SELECT resources.*, users.username, categories.name AS category_name,
   (SELECT ROUND(AVG(number_rating), 1)
