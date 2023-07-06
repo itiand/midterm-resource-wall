@@ -61,7 +61,7 @@
         <li><a class="dropdown-item logout" href="#">Logout</a></li>
       </ul>
     </div>
-    <span class="badge badge-1 text-bg-primary resource-category d-none"><i class="fa-solid fa-x"></i> TEST</span>
+    <span class="badge badge-liked-resource resource-category  <%= badgeDisplay %>"><i class="fa-solid fa-x"></i> Liked</span>
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 resource-container">
     <% for (let resource of resources) { if(!resource.rating) resource.rating = '-' %>
       <div class="col">
