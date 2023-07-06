@@ -2,17 +2,56 @@
 <html lang="en">
 
 <head>
-  <title>Single Resource Page</title>
+    <title>Single Resource Page</title>
 
+<<<<<<< HEAD
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+=======
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+>>>>>>> single-resource-page
 
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
 
+
+    <script src="/vendor/jquery-3.0.0.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cdbootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cdbootstrap/css/cdb.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/cdbootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/cdbootstrap/js/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/cdbootstrap/js/cdb.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
+    <link rel="stylesheet" href="/styles/landing.css" />
+    <link rel="stylesheet" href="/styles/resource.css" />
+
+
+
+    <script defer src="/scripts/app.js"></script>
+    <script src="/scripts/landing.js"></script>
+
+<<<<<<< HEAD
 
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
@@ -41,18 +80,25 @@
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
   <script src="/scripts/landing.js"></script>
+=======
+>>>>>>> single-resource-page
 
 </head>
 
 <body>
+<<<<<<< HEAD
   <div class="container">
     <section class="resource-details">
 
       <h1>Single Resource Page</h1>
+=======
+    <div class="container">
+        <section class="resource-details">
+>>>>>>> single-resource-page
 
-      <div class="logo-container">
-      </div>
+            <h1>Single Resource Page</h1>
 
+<<<<<<< HEAD
       <h2 class="card-title">
         <%= resource.title %>
       </h2>
@@ -73,18 +119,84 @@
               <%= resource.username %>'s resource
             </p>
           </div>
+=======
+            <div class="logo-container">
+            </div>
+
+            <h2 class="card-title">
+                <%= resource.title %>
+            </h2>
+
+            <div class="card">
+                <img src="<%= resource.photo_url %>" class="card-img-top resource-photoURL" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title resource-title">
+                        <a href="<%= resource.url %>">
+                            <%= resource.title %>
+                        </a>
+                    </h5>
+
+
+                    <p class="card-text resource-description">
+                        <%= resource.description %>
+                    </p>
+                    <div class="card-footer text-body-secondary d-flex justify-content-between">
+                        <div class="flex-left">
+                            <p class="mb-0 resource-userId">
+                                <%= resource.username %>'s resource
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="like-comment-rate">
+                <button id="likeBtn" data-id="<%= resource.id %>" class="btn likeButton-btn">Like</button>
+                <button class="btn commentButton-btn" data-toggle="modal" data-target="#commentModal">Comment</button>
+            </div>
+        </section>
+
+        <div class="modal" id="commentModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Comment</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <textarea id="comment" class="form-control" name="comment"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button id="commentBtn" data-id="<%= resource.id %>" type="button" class="btn btn-primary">Save
+                            changes</button>
+                    </div>
+                </div>
+            </div>
+>>>>>>> single-resource-page
         </div>
-      </div>
 
 
-      <div class="like-comment-rate">
-        <button id="likeBtn" data-id="<%= resource.id %>" class="btn likeButton-btn">Like</button>
-        <button class="btn commentButton-btn">Comment</button>
-        <button class="btn rateButton-btn">Rate</button>
-      </div>
-    </section>
+        <div id="rating1" class="star-rating" role="rating" data-rating="0">
+            <button><span onclick="show(1)" id="star1" class="star" data-value="1">&#9733;<span
+                        class="star-notification">Abysmal</span></span></button>
+            <button><span onclick="show(2)" id="star2" class="star" data-value="2">&#9733;<span
+                        class="star-notification">Bad</span></span></button>
+            <button><span onclick="show(3)" id="star3" class="star" data-value="3">&#9733;<span
+                        class="star-notification">Ok</span></span></button>
+            <button><span onclick="show(4)" id="star4" class="star" data-value="4">&#9733;<span
+                        class="star-notification">Good</span></span></button>
+            <button><span onclick="show(5)" id="star5" class="star" data-value="5">&#9733;<span
+                        class="star-notification">Excellent</span></span></button>
+        </div>
+        <div>
+
+            New Comment Should Show Here
 
 
+<<<<<<< HEAD
     <script>
 
       const likeButton = document.getElementById("likeBtn");
@@ -104,6 +216,108 @@
       });
 
     </script>
+=======
+        </div>
+        <script>
+            const show = (val) => {
+                let element = document.getElementById("star" + val);
+                let currentRating = element.getAttribute('data-value');
+
+                // Send the rating value to the server using fetch or any other method
+
+                fetch(`/resource/1/rate`, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ rating: currentRating })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Handle the response from the server
+                        console.log(data);
+                    })
+                    .catch(error => {
+                        // Handle any errors
+                        console.error(error);
+                    });
+            };
+            $(document).ready(function() {
+                $('#myModal').on('shown.bs.modal', function() {
+                    $('#myInput').trigger('focus');
+                });
+
+                const likeButton = document.getElementById("likeBtn");
+
+                likeButton.addEventListener('click', () => {
+                    fetch(`/resource/${likeButton.getAttribute("data-id")}/like`, {
+                        method: 'POST',
+                    })
+                        .then(response => response.json())
+                        .then(data => { // Handle the response from the server
+                            console.log(data);
+                            likeButton.style.backgroundColor = "yellow";
+                        })
+                        .catch(error => {  // Handle any errors
+                            console.error(error);
+                        });
+                });
+
+                const commentButton = document.getElementById("commentBtn");
+
+                commentButton.addEventListener('click', () => {
+                    const comment = document.getElementById("comment").value;
+                    fetch(`/resource/1/comment`, {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ comment: comment })
+                    })
+                        .then(data => { // Handle the response from the server
+                            console.log(data);
+                            $("#comment").val('');
+                            $('#commentModal').modal('hide');
+                        }).then(() => {
+                            fetch('/resource/1/comment', {
+                                method: 'GET'
+                            }).then((data) => {
+                                console.log(data);
+                            }).catch((err) => {
+                                console.log(err);
+                            });
+                        })
+                        .catch(error => {  // Handle any errors
+                            console.error(error);
+                        });
+                    // fetch('/resource/1/comment',{
+                    //     method: 'GET', 
+                    //     headers: {
+                    //     'Accept': 'application/json',
+                    //     'Content-Type': 'application/json'
+                    // }
+                    // })
+                    //     .then(data=> {
+                    //      // handle the response
+                    //     console.log(data);
+
+                    //     })
+                    //     .catch((err) =>{
+                    //   // handle the error
+                    //   console.log(err)
+                    //  });
+
+                });
+                const ratings = document.getElementById('rating1');
+                const rating1 = new CDB.Rating(ratings);
+                rating1.getRating;
+
+            });
+
+        </script>
+>>>>>>> single-resource-page
 
 </body>
 

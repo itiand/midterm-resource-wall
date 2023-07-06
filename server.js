@@ -6,6 +6,7 @@ const cookieSession = require('cookie-session');
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
+const bodyParser = require('body-parser');
 
 
 
@@ -28,6 +29,7 @@ app.use(
   })
 );
 app.use(express.static('public'));
+app.use(bodyParser());
 
 app.use(
   cookieSession({
