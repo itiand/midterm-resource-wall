@@ -4,6 +4,9 @@ const getUsers = () => {
   return db.query('SELECT * FROM users;')
     .then(data => {
       return data.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
     });
 };
 
@@ -25,8 +28,15 @@ const updateUsers = (name, username, email, password) => {
 const addUser = (name, username, email, password) => {
   return db.query(
     `INSERT INTO users (name, username, email, password)
-    VALUES ($1, $2, $3, $4;`,
+    VALUES ($1, $2, $3, $4);`,
     [name, username, email, password])
+
+    .then(data => {
+      return data.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
 }
 
 module.exports = { getUsers, updateUsers, addUser };

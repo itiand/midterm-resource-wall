@@ -22,7 +22,7 @@ router.post('/', (req, res) =>{
   userQueries.                       //alters rows in resource db
   updateUsers(req.body.name,req.body.username, req.body.email, req.body.password)
   console.log("from user route POST", req.body)
-    alert(`You have sucessfulyl changed your profile 👍 `)
+    //alert(`You have sucessfulyl changed your profile 👍 `)
 });
 
 

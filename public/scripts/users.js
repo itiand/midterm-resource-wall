@@ -52,7 +52,7 @@ $( document ).ready(()=> {
     })
     console.log("DATA", returnedEdit)
 
-    alert("You have sucessfully updated your profile!");;
+    alert(`You have sucessfully updated your profile! 👍 `);;
 
   });
 

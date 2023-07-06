@@ -12,12 +12,12 @@ const userQueries = require('../db/queries/users');
 
 router.get('/', (req, res) => {
 
-  db.query('SELECT * FROM users').then(data => {
-    const templateVars = { users: data.rows };
-    console.log('WALDO', templateVars);
-    return res.render('signup', templateVars);
-  })
-    .catch(err => console.log("dbQueryErr", err));
+  // db.query('SELECT * FROM users').then(data => {
+  //   const templateVars = { users: data.rows };
+  //   console.log('WALDO', templateVars);
+    return res.render('signup');
+
+    //.catch(err => console.log("dbQueryErr", err));
 
 });
 
