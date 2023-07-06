@@ -4,6 +4,19 @@ INSERT INTO comments (resource_id, user_id, comment) VALUES (4, 3, 'Reminds me -
 INSERT INTO comments (resource_id, user_id, comment) VALUES (2, 3, 'can we skip css please...');
 INSERT INTO comments (resource_id, user_id, comment) VALUES (3, 1, 'just started js30 aswell!');
 INSERT INTO comments (resource_id, user_id, comment) VALUES (8, 3, 'my go to!');
+INSERT INTO comments (resource_id, user_id, comment) VALUES (3, 8, 'good stuff!');
+INSERT INTO comments (resource_id, user_id, comment) VALUES (8, 9, 'love css!');
+INSERT INTO comments (resource_id, user_id, comment) VALUES (10, 8, 'good stuff!');
+INSERT INTO comments (resource_id, user_id, comment) VALUES (1, 5, 'good stuff:)');
+INSERT INTO comments (resource_id, user_id, comment) VALUES (1, 9, 'Nice! Thanks for that');
+INSERT INTO comments (resource_id, user_id, comment) VALUES (1, 10, 'lovely...');
+INSERT INTO comments (resource_id, user_id, comment) VALUES (2, 10, 'lovely...');
+INSERT INTO comments (resource_id, user_id, comment) VALUES (3, 10, 'lovely...');
+INSERT INTO comments (resource_id, user_id, comment) VALUES (5, 11, 'link in bio to win $500!');
+INSERT INTO comments (resource_id, user_id, comment) VALUES (4, 11, 'link in bio to win $500!');
+INSERT INTO comments (resource_id, user_id, comment) VALUES (3, 11, 'link in bio to win $500!');
+INSERT INTO comments (resource_id, user_id, comment) VALUES (2, 11, 'link in bio to win $500!');
+
 
 
 
@@ -17,6 +30,15 @@ INSERT INTO favourites (resource_id, user_id) VALUES (11, 3);
 INSERT INTO favourites (resource_id, user_id) VALUES (1, 3);
 INSERT INTO favourites (resource_id, user_id) VALUES (4, 3);
 INSERT INTO favourites (resource_id, user_id) VALUES (5, 3);
+INSERT INTO favourites (resource_id, user_id) VALUES (1, 5);
+INSERT INTO favourites (resource_id, user_id) VALUES (2, 5);
+INSERT INTO favourites (resource_id, user_id) VALUES (3, 5);
+INSERT INTO favourites (resource_id, user_id) VALUES (4, 5);
+INSERT INTO favourites (resource_id, user_id) VALUES (5, 5);
+INSERT INTO favourites (resource_id, user_id) VALUES (6, 5);
+
+
+
 
 
 INSERT INTO ratings (resource_id, user_id, number_rating) VALUES (1, 1, 1);

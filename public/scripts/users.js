@@ -26,12 +26,12 @@ $( document ).ready(()=> {
 
     //console.log("what is this response", response)
     for(const user of response.users) {
-      if( user.id === 1) {   ///cookie session need to update this
-        //console.log("user1", user.name)
+      if( user.id === Number(req.session.user_id)) {   ///cookie session need to update this
+        console.log("user1", user.name)
         $("#input-fullname").val(user.name)
         $("#input-email").val(user.email)
         $("#input-username").val(user.username)
-        $("#input-password").val("password field to be updated") ///needs password
+        $("#input-password").val(user.password)
       }
     }
   });
@@ -49,6 +49,11 @@ $( document ).ready(()=> {
       method: 'POST',
       url: '/api/user',
       data: returnedEdit
+    })
+    .done(function(response) {
+      // if success, redirect to the desired page
+      console.log(response);
+      //window.location.href = '/home';   ////needs to
     })
     console.log("DATA", returnedEdit)
 

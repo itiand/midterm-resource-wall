@@ -49,7 +49,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container my-5">
         <section class="resource-details">
 
             <h1>Single Resource Page</h1>
@@ -58,7 +58,9 @@
             </div>
 
             <h2 class="card-title">
+                <a href="<%= resource.url %>">
                 <%= resource.title %>
+            </a>
             </h2>
 
             <div class="card">
@@ -69,17 +71,15 @@
                             <%= resource.title %>
                         </a>
                     </h5>
-
-
                     <p class="card-text resource-description">
                         <%= resource.description %>
                     </p>
-                    <div class="card-footer text-body-secondary d-flex justify-content-between">
-                        <div class="flex-left">
-                            <p class="mb-0 resource-userId">
-                                <%= resource.username %>'s resource
-                            </p>
-                        </div>
+                </div>
+                <div class="card-footer text-body-secondary d-flex justify-content-between">
+                    <div class="flex-left">
+                        <p class="mb-0 resource-userId">
+                            <%= resource.username %>'s resource
+                        </p>
                     </div>
                 </div>
             </div>
@@ -112,43 +112,31 @@
         </div>
 
 
+
         <div id="rating1" class="star-rating" role="rating" data-rating="0">
-            <button><span onclick="show(1)" id="star1" class="star" data-value="1">&#9733;<span
-                        class="star-notification">Abysmal</span></span></button>
-            <button><span onclick="show(2)" id="star2" class="star" data-value="2">&#9733;<span
+            <button><span data-id="<%= resource.id %>" onclick="show(1)" id="star1" class="star" data-value="1">&#9733;<span
+                        class="star-notification">Very Bad</span></span></button>
+            <button><span data-id="<%= resource.id %>" onclick="show(2)" id="star2" class="star" data-value="2">&#9733;<span
                         class="star-notification">Bad</span></span></button>
-            <button><span onclick="show(3)" id="star3" class="star" data-value="3">&#9733;<span
+            <button><span data-id="<%= resource.id %>" onclick="show(3)" id="star3" class="star" data-value="3">&#9733;<span
                         class="star-notification">Ok</span></span></button>
-            <button><span onclick="show(4)" id="star4" class="star" data-value="4">&#9733;<span
+            <button><span data-id="<%= resource.id %>" onclick="show(4)" id="star4" class="star" data-value="4">&#9733;<span
                         class="star-notification">Good</span></span></button>
-            <button><span onclick="show(5)" id="star5" class="star" data-value="5">&#9733;<span
+            <button><span data-id="<%= resource.id %>" onclick="show(5)" id="star5" class="star" data-value="5">&#9733;<span
                         class="star-notification">Excellent</span></span></button>
         </div>
-        <div>
-
-            New Comment Should Show Here
-
-
-    <script>
-
-      const likeButton = document.getElementById("likeBtn");
-
-      likeButton.addEventListener('click', () => {
-        fetch(`/resource/${likeButton.getAttribute("data-id")}/like`, {
-          method: 'POST',
-        })
-          .then(response => response.json())
-          .then(data => { // Handle the response from the server
-            console.log(data);
-            likeButton.style.backgroundColor = "yellow";
-          })
-          .catch(error => {  // Handle any errors
-            console.error(error);
-          });
-      });
-
-    </script>
+        <div class="card my-5">
+            <ul class="list-group">
+            <% for (const comment of comments) { %>
+                <li class="list-group-item d-flex justify-content-between">
+                    <span class="lead"><%= comment.comment %></span>
+                    <span class="text-muted"> Comment by: <%= comment.username %></span>
+                </li>
+            <% } %>
+                </ul>
         </div>
+    </div>
+
         <script>
             const show = (val) => {
                 let element = document.getElementById("star" + val);
@@ -156,7 +144,7 @@
 
                 // Send the rating value to the server using fetch or any other method
 
-                fetch(`/resource/1/rate`, {
+                fetch(`/resource/${element.getAttribute("data-id")}/rate`, {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',
@@ -199,7 +187,7 @@
 
                 commentButton.addEventListener('click', () => {
                     const comment = document.getElementById("comment").value;
-                    fetch(`/resource/1/comment`, {
+                    fetch(`/resource/${commentButton.getAttribute("data-id")}/comment`, {
                         method: 'POST',
                         headers: {
                             'Accept': 'application/json',
@@ -212,34 +200,11 @@
                             $("#comment").val('');
                             $('#commentModal').modal('hide');
                         }).then(() => {
-                            fetch('/resource/1/comment', {
-                                method: 'GET'
-                            }).then((data) => {
-                                console.log(data);
-                            }).catch((err) => {
-                                console.log(err);
-                            });
+                            window.location.reload()
                         })
                         .catch(error => {  // Handle any errors
                             console.error(error);
                         });
-                    // fetch('/resource/1/comment',{
-                    //     method: 'GET',
-                    //     headers: {
-                    //     'Accept': 'application/json',
-                    //     'Content-Type': 'application/json'
-                    // }
-                    // })
-                    //     .then(data=> {
-                    //      // handle the response
-                    //     console.log(data);
-
-                    //     })
-                    //     .catch((err) =>{
-                    //   // handle the error
-                    //   console.log(err)
-                    //  });
-
                 });
                 const ratings = document.getElementById('rating1');
                 const rating1 = new CDB.Rating(ratings);
@@ -248,6 +213,9 @@
             });
 
         </script>
+<footer>
+  <%- include('partials/_nav-bar') %>
+</footer>
 
 </body>
 
