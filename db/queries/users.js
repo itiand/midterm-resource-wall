@@ -28,11 +28,11 @@ const updateUsers = (name, username, email, password) => {
 const addUser = (name, username, email, password) => {
   return db.query(
     `INSERT INTO users (name, username, email, password)
-    VALUES ($1, $2, $3, $4);`,
+    VALUES ($1, $2, $3, $4)
+    RETURNING *;`,
     [name, username, email, password])
-
     .then(data => {
-      return data.rows;
+      return { user: data.rows[0] };
     })
     .catch((err) => {
       console.log(err.message);

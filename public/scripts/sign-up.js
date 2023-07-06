@@ -16,7 +16,18 @@ $('#profile-signup-btn').on('click', (event) => {
     url: '/signup',
     data: newUser
   })
+  .done(function(response) {
+    // if success, redirect to the desired page
+    console.log(response);
+    window.location.href = '/home';
+  })
+  .fail(function(error) {
+    // responds with an error? display the error message on the page
+    const errorMessage = error.responseJSON && error.responseJSON.error ? error.responseJSON.error : 'An error occurred';
+    alert(errorMessage);
+  });
 //redirect to my resources?
+
 });
 
 })
