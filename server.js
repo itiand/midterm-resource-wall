@@ -1,6 +1,6 @@
 // load .env data into process.env
 require('dotenv').config();
-
+const { isLoggedIn } = require('./lib/helpers');
 // Web server config
 const cookieSession = require('cookie-session');
 const sassMiddleware = require('./lib/sass-middleware');
@@ -72,6 +72,9 @@ app.use('/logout', logoutRoutes);
 // Separate them into separate routes files (see above).
 
 app.get('/', (req, res) => {
+  if (isLoggedIn(req)) {
+    return res.redirect('/home');
+  }
   res.render('index');
 });
 

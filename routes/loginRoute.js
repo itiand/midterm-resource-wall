@@ -11,6 +11,9 @@ router.use(cookieSession({
 }));
 
 router.get('/', (req, res) => {
+  if (isLoggedIn(req)) {
+    return res.redirect('/home');
+  }
   res.render('login');
 });
 
@@ -24,7 +27,7 @@ router.post('/', (req, res) => {
         console.log('userData', user);
 
         if (user.password === password) {
-          req.session.user_id = user.id
+          req.session.user_id = user.id;
           // Login successful, respond with a success message
           return res.json({ message: 'Login successful' });
         }

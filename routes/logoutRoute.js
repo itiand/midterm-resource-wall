@@ -9,9 +9,7 @@ router.use(cookieSession({
 
 
 router.post('/', (req, res) => {
-
-  //clear cookie session
-  //redirect
+  //clear cookie session and redirect
   req.session = null;
   res.status(200).json({ message: 'Logout successful' });
 });
