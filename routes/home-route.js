@@ -1,8 +1,12 @@
+const {  isLoggedIn } = require('../lib/helpers');
 const express = require('express');
 const router = express.Router();
 const db = require('../db/connection');
 
 router.get('/', (req, res) => {
+  if(!isLoggedIn(req)){
+    return res.redirect('/')
+  };
 
   db.query(`SELECT resources.*, users.username, categories.name AS category_name,
   (SELECT ROUND(AVG(number_rating), 1)
