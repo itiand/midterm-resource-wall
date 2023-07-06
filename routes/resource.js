@@ -1,22 +1,27 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db/connection');
+const { getCommentsByResourceID, getResourceById} = require("../db/queries/resources")
 
 
-router.get('/:id', (req, res) => {
-    let id = req.params.id
-    db.query('SELECT resources.*,users.username AS username FROM resources JOIN users ON users.id = resources.user_id WHERE resources.id = $1',[id]).then(data => {
-        const templateVars = { resource: data.rows[0]};
-        console.log('WALDO RESOURCE', templateVars);
-        return res.render('resourcepage', templateVars);
-      })
-        .catch(err => console.log("dbQueryErr", err));
+router.get('/:id', async (req, res) => {
+    try {
+      const resource = await getResourceById(req.params.id)
+      const comments = await getCommentsByResourceID(req.params.id)
+      console.log("resource ----", resource)
+      console.log("comments ----", comments)
+      const templateVars = { resource, comments };
+      
+      return res.render('resourcepage', templateVars);
+    } catch (err) {
+      console.log("err", err)
+    }
 });
 
 router.post('/:id/like', (req, res) => {
     let id = req.params.id
-    // const userid = req.session.userid 
-    const user_id = 1
+    const user_id = req.session.user_id 
+    // const user_id = 1
     db.query('INSERT INTO favourites (resource_id, user_id) VALUES ($1, $2);',[id, user_id]).then(data => {
         res.send({message:"Resource Liked"})
       })
@@ -24,11 +29,12 @@ router.post('/:id/like', (req, res) => {
 });
 router.get('/:id/comment', (req, res) => {
     let id = req.params.id
-    // const userid = req.session.userid 
-    const user_id = 1
+    console.log("inside----------")
+    const user_id = req.session.user_id
+    // const user_id = 1
     db.query('Select * from comments where resource_id = $1 and  user_id = $2;',[id, user_id]).then(data => {
         const templateVars = { comments: data.rows[0]};
-        console.log('comments', templateVars);
+        console.log('comments-------------', data.rows);
         return res.render('resourcepage', templateVars);
       })
         .catch(err => console.log("dbQueryErr cannot grab comments", err));
@@ -36,9 +42,9 @@ router.get('/:id/comment', (req, res) => {
 router.post('/:id/comment', (req, res) => {
     let id = req.params.id
     let comment = req.body.comment
-    console.log(comment, req,req.body)
-    // const userid = req.session.userid 
-    const user_id = 1
+    console.log(comment)
+    const user_id = req.session.user_id
+    // const user_id = 1
     db.query('INSERT INTO comments (resource_id, user_id, comment) VALUES ($1, $2, $3);',[id, user_id,comment]).then(data => {
         res.send({message:"Resource Comment"})
        
@@ -49,8 +55,8 @@ router.post('/:id/comment', (req, res) => {
 router.post('/:id/rate', (req, res) => {
     const id = req.params.id;
     const rating = req.body.rating;
-    // const user_id = req.session.userid;
-    const user_id = 1
+    const user_id = req.session.user_id
+    // const user_id = 1
 console.log("rating in backend post", rating)
     db.query('INSERT INTO ratings (resource_id, user_id, number_rating) VALUES ($1, $2, $3);', [id, user_id, rating])
       .then(data => {
