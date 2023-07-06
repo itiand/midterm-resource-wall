@@ -22,7 +22,17 @@ router.post('/:id/like', (req, res) => {
       })
         .catch(err => console.log("dbQueryErr", err));
 });
-
+router.get('/:id/comment', (req, res) => {
+    let id = req.params.id
+    // const userid = req.session.userid 
+    const user_id = 1
+    db.query('Select * from comments where resource_id = $1 and  user_id = $2;',[id, user_id]).then(data => {
+        const templateVars = { comments: data.rows[0]};
+        console.log('comments', templateVars);
+        return res.render('resourcepage', templateVars);
+      })
+        .catch(err => console.log("dbQueryErr cannot grab comments", err));
+});
 router.post('/:id/comment', (req, res) => {
     let id = req.params.id
     let comment = req.body.comment
@@ -31,6 +41,7 @@ router.post('/:id/comment', (req, res) => {
     const user_id = 1
     db.query('INSERT INTO comments (resource_id, user_id, comment) VALUES ($1, $2, $3);',[id, user_id,comment]).then(data => {
         res.send({message:"Resource Comment"})
+       
       })
         .catch(err => console.log("dbQueryErr", err));
 });
