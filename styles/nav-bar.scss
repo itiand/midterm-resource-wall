@@ -9,33 +9,54 @@ $lightgray: #f7f7f7;
   color: white;
   background-color: $blue-munsell;
   font-size: 2em;
+
   .nav-link {
+    font-size: 0.8em;
+    padding: 0;
     color: white;
+
     &:hover {
-    color: $maize;
+      color: $maize;
     }
-  };
+  }
+
+  box-shadow: 0px -12px 13px 5px rgba(0,0,0,0.1);
+
 }
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+// .navbar-collapse{
+//   display: flex;
+// }
 
 .navbar-toggler-icon {
   color: white;
 }
+
+
 .nav-button {
-  color:white;
+  color: white;
   border: none;
   background-color: $blue-munsell;
+
   &:hover {
-        color: $maize;
-        }
-}
-.navbar{
-  .collapse{
-  .form-inline{
-    .btn{
-      &:hover {
-        color: $maize;
-        }
-    }
+    color: $maize;
   }
 }
+
+.navbar {
+  .collapse {
+    .form-inline {
+      .btn {
+        &:hover {
+          color: $maize;
+        }
+      }
+    }
+  }
 }
