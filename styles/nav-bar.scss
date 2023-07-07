@@ -24,9 +24,20 @@ $lightgray: #f7f7f7;
 
 }
 
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+// .navbar-collapse{
+//   display: flex;
+// }
+
 .navbar-toggler-icon {
   color: white;
 }
+
 
 .nav-button {
   color: white;
