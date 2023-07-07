@@ -1,7 +1,7 @@
 const db = require('../connection');
 
-const getUsers = () => {
-  return db.query('SELECT * FROM users;')
+const getUsers = (id) => {
+  return db.query(`SELECT * FROM users WHERE id = ${id};`)///
     .then(data => {
       return data.rows;
     })
@@ -11,10 +11,10 @@ const getUsers = () => {
 };
 
 
-const updateUsers = (name, username, email, password) => {
+const updateUsers = (name, username, email, password, id) => {
   return db.query(
     `UPDATE users SET name = $1, username=$2, email=$3, password=$4
-    WHERE id = 1;`,               //will need to set this to cookie
+    WHERE id = ${id};`,               //will need to set this to cookie
     [name, username, email, password])
 
     .then(data => {

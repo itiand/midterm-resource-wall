@@ -6,7 +6,8 @@ const userQueries = require('../db/queries/users');
 
 router.get('/', (req, res) => {
   console.log("getting user");
-  userQueries.getUsers()         //returns an obj of all users
+
+  userQueries.getUsers(req.session.user_id)         //returns an obj of all users
     .then(users => {
       res.json({ users });
     })
@@ -20,7 +21,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   console.log("request req.body", req.body);
   userQueries.                       //alters rows in resource db
-    updateUsers(req.body.name, req.body.username, req.body.email, req.body.password);
+    updateUsers(req.body.name, req.body.username, req.body.email, req.body.password, req.session.user_id);
   console.log("from user route POST", req.body);
   //alert(`You have sucessfulyl changed your profile 👍 `)
 });
